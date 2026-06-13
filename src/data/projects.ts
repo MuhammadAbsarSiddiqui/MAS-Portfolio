@@ -1,80 +1,65 @@
-export interface FeaturedProjectData {
+export interface FeaturedProject {
+  id: string;
   title: string;
   tagline: string;
   description: string;
-  features: string[];
-  techStack: string[];
   problem: string;
   solution: string;
-  liveUrl: string;
-  githubUrl: string;
-  imagePath: string;
-  isReversed: boolean;
+  tech: string[];
+  image: string;
+  github?: string;
+  live?: string;
 }
 
-export interface StandardProjectData {
+export interface StandardProject {
+  id: string;
   title: string;
-  tagline: string;
   description: string;
-  techStack: string[];
-  githubUrl: string;
-  liveUrl: string;
+  tech: string[];
+  github?: string;
+  live?: string;
 }
 
-export const featuredProjects: FeaturedProjectData[] = [
+export const featuredProjects: FeaturedProject[] = [
   {
+    id: "intellitrade",
     title: "IntelliTrade",
     tagline: "AI-Powered Trade Matching Engine",
-    description: "An automated system that replaces manual broker work by reading trade emails, extracting buy/sell intents, and mathematically optimizing multi-seller order fulfillment.",
-    features: [
-      "AI email parsing via Google Gemini",
-      "Multi-seller order splitting algorithm",
-      "Automated profit calculation",
-      "Broker dashboard for review and dispatch"
-    ],
-    techStack: ["Python", "FastAPI", "Google Gemini API", "React", "Supabase"],
+    description: "A multi-tenant SaaS platform that automates commodity trade discovery by reading broker emails, extracting structured trade data via AI, and intelligently matching buyers with sellers in real time.",
     problem: "Human brokers spend hours reading messy emails and manually matching buyers to sellers, leaving profit on the table due to missed connections.",
     solution: "IntelliTrade monitors email inboxes 24/7, uses AI to understand trade intents, and runs matching algorithms that combine multiple sellers to fulfill large orders automatically.",
-    liveUrl: "#",
-    githubUrl: "#",
-    imagePath: "/images/intellitrade-architecture.png",
-    isReversed: false
+    tech: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "BullMQ", "Redis", "Google Gemini", "OpenAI"],
+    image: "/images/intellitrade-architecture.png"
   },
   {
+    id: "tacitvault",
     title: "TacitVault AI",
     tagline: "Voice-to-Knowledge Management System",
     description: "An end-to-end KMS that captures undocumented expertise via voice, uses LLMs to structure it into SOPs, and predicts knowledge risks before they impact operations.",
-    features: [
-      "Voice capture via MediaRecorder API",
-      "AI structuring into formal SOP templates",
-      "Semantic search using pgvector embeddings",
-      "Automated risk engine for knowledge gaps"
-    ],
-    techStack: ["Python", "FastAPI", "Google Gemini API", "Supabase", "pgvector", "APScheduler"],
     problem: "Critical operational knowledge lives only in employees' heads. When experts leave, the knowledge leaves with them.",
     solution: "TacitVault captures voice input, structures it into searchable SOPs, and monitors for concentration and retirement risks, alerting management before gaps become crises.",
-    liveUrl: "#",
-    githubUrl: "#",
-    imagePath: "/images/tacitvault-architecture.png",
-    isReversed: true
+    tech: ["Python", "FastAPI", "Google Gemini API", "Supabase", "PostgreSQL", "pgvector", "APScheduler"],
+    image: "/images/tacitvault-architecture.png"
   }
 ];
 
-export const standardProjects: StandardProjectData[] = [
+export const standardProjects: StandardProject[] = [
   {
+    id: "taskmanager",
     title: "Task Management System",
-    tagline: "React Migration with Advanced State Management",
     description: "Re-engineered a vanilla JavaScript task app into a modular React architecture using Hooks for state management, with priority tagging and search functionality.",
-    techStack: ["React.js", "JavaScript", "CSS3"],
-    githubUrl: "#",
-    liveUrl: "#"
+    tech: ["React.js", "JavaScript", "CSS3"]
   },
   {
+    id: "newsapp",
     title: "News App",
-    tagline: "Real-Time News with Dynamic Routing",
     description: "A responsive news application consuming REST APIs with dynamic routing, category filtering, and real-time state updates.",
-    techStack: ["React.js", "REST API", "JavaScript"],
-    githubUrl: "#",
-    liveUrl: "#"
+    tech: ["React.js", "REST API", "JavaScript"]
+  },
+  {
+    id: "textutilz",
+    title: "Text Utilz",
+    description: "Built a productivity tool featuring text transformation, word counting, and character analysis with a clean, responsive interface.",
+    tech: ["React.js", "JavaScript", "CSS3"]
   }
 ];

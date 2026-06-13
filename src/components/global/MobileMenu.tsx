@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
-import { CVDButton } from './CVDButton';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -13,7 +12,7 @@ interface MobileMenuProps {
 
 const menuLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Work', href: '#work' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -46,47 +45,38 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop overlay */}
+          {/* Full-screen menu panel */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm cursor-pointer"
-          />
-
-          {/* Sidebar menu panel */}
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-background border-l border-border px-6 py-6 flex flex-col shadow-2xl justify-between"
+            transition={{ duration: 0 }}
+            className="fixed inset-0 z-50 bg-background px-8 py-6 flex flex-col justify-between"
           >
             <div>
               {/* Header */}
-              <div className="flex items-center justify-between mb-12">
-                <span className="font-heading font-bold text-xl text-accent-primary">
-                  Menu
+              <div className="flex items-center justify-between mb-16">
+                <span className="font-heading font-bold text-2xl text-accent-primary">
+                  Menu.
                 </span>
                 <button
                   onClick={onClose}
                   type="button"
-                  className="p-2 text-foreground/80 hover:text-foreground hover:bg-card rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-accent-primary cursor-pointer"
+                  className="p-2 text-foreground/80 hover:text-foreground cursor-pointer"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-8 h-8" />
                 </button>
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col gap-6">
+              <nav className="flex flex-col gap-8">
                 {menuLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={onClose}
-                    className="text-2xl font-heading font-semibold text-foreground/95 hover:text-accent-primary transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-accent-primary rounded-md px-1"
+                    className="text-4xl font-heading font-bold text-foreground/95 hover:text-accent-primary transition-colors py-2"
                   >
                     {link.label}
                   </a>
@@ -95,12 +85,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             {/* Bottom Actions */}
-            <div className="flex flex-col gap-6 pt-6 border-t border-border">
-              <CVDButton variant="default" className="w-full py-3" />
-              <div className="flex justify-center items-center gap-4 py-2">
-                <span className="text-sm text-muted font-body">Theme:</span>
-                <ThemeToggle />
-              </div>
+            <div className="flex items-center justify-between pt-6 border-t border-border">
+              <span className="text-sm text-muted font-mono">Theme:</span>
+              <ThemeToggle />
             </div>
           </motion.div>
         </>
@@ -108,3 +95,4 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     </AnimatePresence>
   );
 }
+

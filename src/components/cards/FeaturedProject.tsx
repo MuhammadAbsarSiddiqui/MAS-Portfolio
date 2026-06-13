@@ -1,123 +1,97 @@
-import React from 'react';
-import { Check, ExternalLink } from 'lucide-react';
-import { Github } from '@/components/global/Icons';
-import { FeaturedProjectData } from '@/data/projects';
-import { TechBadge } from '@/components/global/TechBadge';
-import { cn } from '@/lib/utils';
+'use client';
 
-export function FeaturedProject({
-  title,
-  tagline,
-  description,
-  features,
-  techStack,
-  problem,
-  solution,
-  liveUrl,
-  githubUrl,
-  imagePath,
-  isReversed,
-}: FeaturedProjectData) {
+import React, { useState } from 'react';
+import { FeaturedProject as FeaturedProjectType } from '@/data/projects';
+import { TechBadge } from '@/components/global/TechBadge';
+import ParallaxImage from '@/components/animation/ParallaxImage';
+
+interface FeaturedProjectProps {
+  project: FeaturedProjectType;
+}
+
+export default function FeaturedProject({ project }: FeaturedProjectProps) {
+  const [imageError, setImageError] = useState(false);
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-8">
-      {/* Visual Content Column */}
-      <div
-        className={cn(
-          "lg:col-span-6 relative rounded-2xl overflow-hidden border border-border bg-card aspect-[16/10] group",
-          isReversed ? "lg:order-last" : ""
-        )}
-      >
-        {/* Architecture Image / Backup SVG Placeholder */}
-        <img
-          src={imagePath}
-          alt={`${title} Architecture Diagram`}
-          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-90"
-        />
-        {/* Glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-start ${project.id === 'tacitvault' ? 'md:rtl' : ''}`}>
+      {/* Image Column */}
+      <div className={`w-full ${project.id === 'tacitvault' ? 'md:order-2 md:ltr' : ''}`}>
+        <div className="relative aspect-video bg-card overflow-hidden border border-border">
+          {imageError ? (
+            <div className="w-full h-full flex items-center justify-center bg-card text-muted font-mono p-4 text-center">
+              {project.title} Architecture
+            </div>
+          ) : (
+            <div className="w-full h-full absolute inset-0 opacity-80 hover:opacity-100 transition-opacity duration-500">
+              <ParallaxImage 
+                src={project.image} 
+                alt={`${project.title} architecture`} 
+                speed={15}
+                className="w-full h-full"
+              />
+              <img 
+                src={project.image} 
+                alt="" 
+                className="hidden" 
+                onError={() => setImageError(true)} 
+              />
+            </div>
+          )}
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none z-10" />
+        </div>
       </div>
 
-      {/* Info Content Column */}
-      <div className="lg:col-span-6 flex flex-col gap-5">
-        {/* Tagline Chip */}
-        <div>
-          <span className="text-xs font-mono font-bold tracking-wider uppercase text-accent-primary bg-accent-primary/10 border border-accent-primary/20 px-3 py-1 rounded-full">
-            {tagline}
-          </span>
-        </div>
+      {/* Text Column */}
+      <div className={`w-full ${project.id === 'tacitvault' ? 'md:order-1 md:text-right' : ''}`}>
+        {project.id === 'intellitrade' && (
+          <h4 className="text-sm font-mono font-bold tracking-widest uppercase text-accent-secondary mb-2">
+            University Final Year Project
+          </h4>
+        )}
+        <span className="text-accent-primary font-mono text-sm">{project.tagline}</span>
+        <h3 className="text-2xl md:text-4xl font-heading font-bold mt-2">{project.title}</h3>
+        <p className="text-muted mt-4 leading-relaxed font-body">{project.description}</p>
 
-        {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-          {title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-muted text-sm md:text-base leading-relaxed font-body">
-          {description}
-        </p>
-
-        {/* Problem & Solution Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-          {/* Problem Card */}
-          <div className="p-4 bg-card border border-border rounded-xl">
-            <span className="text-xs font-heading font-semibold text-muted tracking-wider uppercase block mb-1.5">
-              The Problem
-            </span>
-            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-body">
-              {problem}
-            </p>
+        {/* Problem/Solution — minimal, no cards */}
+        <div className={`mt-6 grid grid-cols-2 gap-4 ${project.id === 'tacitvault' ? 'text-right' : ''}`}>
+          <div>
+            <h4 className="text-xs font-mono text-muted uppercase tracking-wider">Problem</h4>
+            <p className="text-muted text-sm mt-1 font-body">{project.problem}</p>
           </div>
-
-          {/* Solution Card */}
-          <div className="p-4 bg-card border border-accent-primary/30 rounded-xl shadow-md shadow-accent-primary/5">
-            <span className="text-xs font-heading font-semibold text-accent-primary tracking-wider uppercase block mb-1.5">
-              The Solution
-            </span>
-            <p className="text-xs md:text-sm text-foreground/90 leading-relaxed font-body">
-              {solution}
-            </p>
+          <div>
+            <h4 className="text-xs font-mono text-accent-primary uppercase tracking-wider">Solution</h4>
+            <p className="text-muted text-sm mt-1 font-body">{project.solution}</p>
           </div>
         </div>
 
-        {/* Features Checklist */}
-        <ul className="flex flex-col gap-2 mt-2">
-          {features.map((feature, idx) => (
-            <li key={idx} className="flex items-start gap-2.5 text-sm font-body text-foreground/80">
-              <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-2 mt-2">
-          {techStack.map((tech) => (
-            <TechBadge key={tech} name={tech} />
+        {/* Tech badges */}
+        <div className={`mt-6 flex flex-wrap gap-4 ${project.id === 'tacitvault' ? 'justify-end' : ''}`}>
+          {project.tech.map((tech) => (
+            <TechBadge key={tech} name={tech} variant="accent" />
           ))}
         </div>
 
-        {/* Project Links */}
-        <div className="flex items-center gap-4 mt-3">
-          {githubUrl && githubUrl !== '#' && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-heading font-semibold text-sm px-4 py-2 border border-border rounded-lg bg-card text-foreground hover:bg-card-hover hover:border-accent-primary/30 transition-all duration-200 cursor-pointer"
+        {/* Links */}
+        <div className={`mt-8 flex gap-6 ${project.id === 'tacitvault' ? 'justify-end' : ''}`}>
+          {project.github && project.github !== '#' && (
+            <a 
+              href={project.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted text-sm border-b border-transparent hover:border-foreground hover:text-foreground transition-colors font-body"
             >
-              <Github className="w-4 h-4" />
-              Source Code
+              Source →
             </a>
           )}
-          {liveUrl && liveUrl !== '#' && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-heading font-semibold text-sm px-4 py-2 bg-accent-primary text-background rounded-lg hover:bg-accent-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          {project.live && project.live !== '#' && (
+            <a 
+              href={project.live} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted text-sm border-b border-transparent hover:border-foreground hover:text-foreground transition-colors font-body"
             >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
+              Live →
             </a>
           )}
         </div>

@@ -1,44 +1,69 @@
 'use client';
 
 import React from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { SectionWrapper } from '@/components/global/SectionWrapper';
 import { SectionTitle } from '@/components/global/SectionTitle';
-import { TechBadge } from '@/components/global/TechBadge';
-import { ScrollReveal } from '@/components/global/ScrollReveal';
-import { skillsData } from '@/data/skills';
+import { skills } from '@/data/skills';
+import ScrollReveal from '@/components/animation/ScrollReveal';
 
 export function SkillsSection() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
   return (
-    <SectionWrapper id="skills" className="bg-card/20">
-      <ScrollReveal direction="up" delay={0.1}>
-        <SectionTitle
-          title="Skills"
-          subtitle="My technical toolkit structured by layer, with focus on modular APIs and modern client stacks."
-        />
+    <SectionWrapper id="skills">
+      <ScrollReveal>
+        <SectionTitle title="Skills" subtitle="Technologies I work with in production." />
       </ScrollReveal>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-        {skillsData.map((categoryData, idx) => (
-          <ScrollReveal
-            key={categoryData.category}
-            direction="up"
-            delay={0.15 * (idx + 1)}
-            className="flex flex-col gap-6 p-6 bg-card border border-border rounded-xl hover:border-accent-primary/25 transition-all duration-300"
-          >
-            {/* Category Name */}
-            <h3 className="text-lg md:text-xl font-heading font-bold text-foreground flex items-center gap-1">
-              {categoryData.category}
-              <span className="text-accent-primary">.</span>
-            </h3>
-
-            {/* Badges Container */}
-            <div className="flex flex-wrap gap-2.5">
-              {categoryData.skills.map((skill) => (
-                <TechBadge key={skill} name={skill} variant="default" />
+      <div ref={containerRef} className="mt-12 grid md:grid-cols-3 gap-8 md:gap-12">
+        {skills.map((category) => (
+          <div key={category.category}>
+            <ScrollReveal y={15}>
+              <h3 className="text-sm font-mono text-muted uppercase tracking-wider mb-4">
+                {category.category}
+              </h3>
+            </ScrollReveal>
+            <motion.div 
+              className="flex flex-wrap gap-x-4 gap-y-3"
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
+              {category.items.map((skill) => (
+                <motion.span 
+                  key={skill} 
+                  variants={itemVariants}
+                  className="text-foreground text-base border-b border-border hover:border-accent-primary hover:text-accent-primary transition-colors duration-200 cursor-default font-mono py-1"
+                >
+                  {skill}
+                </motion.span>
               ))}
-            </div>
-          </ScrollReveal>
+            </motion.div>
+          </div>
         ))}
       </div>
     </SectionWrapper>

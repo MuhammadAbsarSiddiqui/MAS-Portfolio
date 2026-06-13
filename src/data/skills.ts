@@ -1,19 +1,19 @@
 export interface SkillCategory {
   category: string;
-  skills: string[];
+  items: string[];
 }
 
-export const skillsData: SkillCategory[] = [
+export const skills: SkillCategory[] = [
   {
     category: "Frontend",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS"]
+    items: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS"]
   },
   {
     category: "Backend & AI",
-    skills: ["Python", "FastAPI", "Node.js", "Google Gemini API", "REST APIs"]
+    items: ["Node.js", "Python", "FastAPI", "Fastify", "Prisma", "Google Gemini API", "REST APIs"]
   },
   {
     category: "Database & Tools",
-    skills: ["Supabase", "PostgreSQL", "pgvector", "Git", "GitHub", "Vercel", "Netlify"]
+    items: ["PostgreSQL", "Supabase", "Redis", "Git", "GitHub", "Vercel", "BullMQ"]
   }
 ];
