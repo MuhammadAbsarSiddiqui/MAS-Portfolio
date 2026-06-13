@@ -4,39 +4,24 @@ import React, { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
-import { CVDButton } from './CVDButton';
 import { MobileMenu } from './MobileMenu';
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Work', href: '#work' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = ['hero', 'about', 'projects', 'skills', 'contact'];
+    const sections = ['hero', 'about', 'work', 'skills', 'contact'];
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', // detects when section occupies central area of screen
+      rootMargin: '-30% 0px -40% 0px',
       threshold: 0,
     };
 
@@ -65,22 +50,15 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300 w-full px-4 md:px-8 py-4 border-b border-transparent",
-          scrolled
-            ? "bg-background/80 backdrop-blur-md border-border/80 shadow-md py-3.5"
-            : "bg-transparent py-5"
-        )}
-      >
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 w-full px-4 md:px-8 bg-transparent flex items-center">
+        <div className="max-w-6xl mx-auto w-full flex items-center justify-between">
           {/* Logo */}
           <a
             href="#hero"
-            className="font-heading font-bold text-2xl tracking-tight text-accent-primary hover:scale-105 active:scale-95 transition-transform"
+            className="font-heading font-bold text-2xl tracking-tight text-accent-primary"
             aria-label="Absar Siddiqui Portfolio Home"
           >
-            AS<span className="text-foreground">.</span>
+            AS.
           </a>
 
           {/* Desktop Nav Items */}
@@ -92,16 +70,14 @@ export function Navbar() {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "text-sm font-heading font-medium tracking-wide relative py-1.5 transition-colors",
+                    "text-sm font-heading font-medium tracking-wide relative py-1.5 transition-colors duration-300",
+                    "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-accent-primary after:transition-all after:duration-300",
                     isActive
-                      ? "text-accent-primary"
-                      : "text-foreground/80 hover:text-foreground"
+                      ? "text-accent-primary after:w-full"
+                      : "text-foreground/80 hover:text-accent-primary after:w-0 hover:after:w-full"
                   )}
                 >
                   {item.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent-primary rounded-full" />
-                  )}
                 </a>
               );
             })}
@@ -110,7 +86,6 @@ export function Navbar() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
-            <CVDButton variant="navbar" />
           </div>
 
           {/* Mobile Right Controls */}
@@ -119,7 +94,7 @@ export function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(true)}
               type="button"
-              className="p-2 text-foreground/80 hover:text-foreground hover:bg-card border border-border rounded-lg cursor-pointer"
+              className="p-2 text-foreground/80 hover:text-foreground cursor-pointer"
               aria-label="Open navigation menu"
             >
               <Menu className="w-5 h-5" />
@@ -133,3 +108,4 @@ export function Navbar() {
     </>
   );
 }
+

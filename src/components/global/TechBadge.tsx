@@ -10,13 +10,14 @@ export function TechBadge({ name, variant = 'default' }: TechBadgeProps) {
   return (
     <span
       className={cn(
-        "inline-block px-3 py-1 text-xs font-mono rounded-full border transition-all duration-200",
+        "inline-block text-sm font-mono border-b pb-1 transition-colors duration-200 cursor-default",
         variant === 'accent'
-          ? "bg-accent-primary/10 border-accent-primary/30 text-accent-primary"
-          : "bg-card border-border text-foreground/80"
+          ? "border-accent-primary text-accent-primary"
+          : "border-border text-muted hover:border-accent-primary hover:text-accent-primary"
       )}
     >
       {name}
     </span>
   );
 }
+

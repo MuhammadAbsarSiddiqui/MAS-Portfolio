@@ -18,7 +18,7 @@ export function ContactCard({ icon: Icon, title, value, href }: ContactCardProps
       className="group flex items-center gap-4 p-5 md:p-6 bg-card border border-border rounded-xl transition-all duration-300 hover:border-accent-primary/50 hover:bg-card-hover min-h-[48px] focus:outline-none focus:ring-2 focus:ring-accent-primary"
       aria-label={`${title}: ${value}`}
     >
-      <div className="flex-shrink-0 p-3 bg-background border border-border rounded-lg group-hover:border-accent-primary/30 transition-colors">
+      <div className="shrink-0 p-3 bg-background border border-border rounded-lg group-hover:border-accent-primary/30 transition-colors">
         <Icon className="w-6 h-6 text-accent-primary group-hover:scale-110 transition-transform duration-300" />
       </div>
       <div className="flex flex-col min-w-0">

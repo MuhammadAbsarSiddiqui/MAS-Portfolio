@@ -3,6 +3,9 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/global/ThemeProvider'
 import { Navbar } from '@/components/global/Navbar'
 import { Footer } from '@/components/global/Footer'
+import GrainOverlay from '@/components/global/GrainOverlay'
+import FloatingOrb from '@/components/global/FloatingOrb'
+import SmoothScroll from '@/components/global/SmoothScroll'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -11,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jet
 
 export const metadata: Metadata = {
   title: 'Muhammad Absar Siddiqui | Software Engineer',
-  description: 'Software Engineer building AI-powered applications. Final year student at SMIU, Karachi.',
+  description: 'Software Engineer building AI-powered applications that turn unstructured human input into structured intelligence.',
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-touch-icon.png',
@@ -28,11 +31,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-body bg-background text-foreground antialiased min-h-screen flex flex-col pt-16`}>
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
+          <SmoothScroll>
+            <GrainOverlay />
+            <FloatingOrb />
+            <Navbar />
+            <main className="grow">{children}</main>
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
   )
 }
+
+
