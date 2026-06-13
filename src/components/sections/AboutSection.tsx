@@ -28,7 +28,7 @@ export function AboutSection() {
 
           <ScrollReveal delay={0.1} className="mt-8 space-y-6">
             <p className="text-muted text-lg leading-relaxed font-body">
-              I'm a software engineer specializing in full-stack development integrated with artificial intelligence. 
+              I&apos;m a software engineer specializing in full-stack development integrated with artificial intelligence. 
               My focus is turning raw, unstructured data — like audio recording logs or chaotic inbox threads — 
               into highly structured, searchable, and actionable business intelligence.
             </p>

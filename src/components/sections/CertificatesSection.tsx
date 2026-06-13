@@ -8,7 +8,6 @@ import CertificateCard from '@/components/cards/CertificateCard';
 import ScrollReveal from '@/components/animation/ScrollReveal';
 
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export default function CertificatesSection() {
   // Double the list to create a seamless loop

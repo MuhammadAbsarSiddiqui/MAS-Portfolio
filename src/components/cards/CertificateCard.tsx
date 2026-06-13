@@ -3,11 +3,11 @@
 import React from 'react';
 import { Certificate } from '@/data/certificates';
 import { Award, ExternalLink } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface CertificateCardProps {
   cert: Certificate;
-  variants?: any;
+  variants?: Variants;
 }
 
 export default function CertificateCard({ cert, variants }: CertificateCardProps) {

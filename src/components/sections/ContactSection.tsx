@@ -4,12 +4,9 @@ import React from 'react';
 import { SectionWrapper } from '@/components/global/SectionWrapper';
 import { Mail, MapPin, Download } from 'lucide-react';
 import { Github, Linkedin } from '@/components/global/Icons';
-import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/animation/ScrollReveal';
 
 export function ContactSection() {
-  const customEase = [0.25, 0.1, 0.25, 1] as const;
-
   return (
     <SectionWrapper id="contact" className="py-20">
       <div className="max-w-5xl mx-auto">

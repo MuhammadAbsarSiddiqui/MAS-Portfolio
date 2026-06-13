@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { experiences } from '@/data/experience';
 import { SectionWrapper } from '@/components/global/SectionWrapper';
 import { SectionTitle } from '@/components/global/SectionTitle';
@@ -24,7 +23,7 @@ export default function ExperienceSection() {
         />
 
         <div className="space-y-16">
-          {experiences.map((exp, i) => (
+          {experiences.map((exp) => (
             <div key={exp.id} className="relative group">
               {/* Timeline marker node dot */}
               <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full border-2 border-border bg-background group-hover:border-accent-primary transition-colors duration-300" />
