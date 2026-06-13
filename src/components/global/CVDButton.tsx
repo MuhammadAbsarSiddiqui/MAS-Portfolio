@@ -24,7 +24,7 @@ export function CVDButton({ variant = 'default', className }: CVDButtonProps) {
 
   return (
     <a
-      href="/cv.pdf"
+      href="/Muhammad_Absar_Siddiqui_CV.pdf"
       download="Muhammad_Absar_Siddiqui_CV.pdf"
       className={cn(
         "inline-flex items-center justify-center font-heading transition-all duration-300",

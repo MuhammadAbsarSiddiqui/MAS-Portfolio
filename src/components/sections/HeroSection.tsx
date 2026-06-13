@@ -90,7 +90,7 @@ export function HeroSection() {
           className="text-muted text-sm font-mono block origin-bottom-right"
           style={{ transform: 'rotate(90deg) translateY(100%)' }}
         >
-          Scroll
+        
         </span>
       </motion.div>
     </section>
