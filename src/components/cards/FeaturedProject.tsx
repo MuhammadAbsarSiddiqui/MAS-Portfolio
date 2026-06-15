@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { FeaturedProject as FeaturedProjectType } from '@/data/projects';
 import { TechBadge } from '@/components/global/TechBadge';
-import ParallaxImage from '@/components/animation/ParallaxImage';
 
 interface FeaturedProjectProps {
   project: FeaturedProjectType;
@@ -13,26 +12,20 @@ export default function FeaturedProject({ project }: FeaturedProjectProps) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-start ${project.id === 'tacitvault' ? 'md:rtl' : ''}`}>
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-stretch ${project.id === 'tacitvault' ? 'md:rtl' : ''}`}>
       {/* Image Column */}
-      <div className={`w-full ${project.id === 'tacitvault' ? 'md:order-2 md:ltr' : ''}`}>
-        <div className="relative aspect-video bg-card overflow-hidden border border-border">
+      <div className={`w-full h-full ${project.id === 'tacitvault' ? 'md:order-2 md:ltr' : ''}`}>
+        <div className="relative h-full min-h-[300px] w-full bg-card overflow-hidden border border-border rounded-xl">
           {imageError ? (
             <div className="w-full h-full flex items-center justify-center bg-card text-muted font-mono p-4 text-center">
               {project.title} Architecture
             </div>
           ) : (
-            <div className="w-full h-full absolute inset-0 opacity-80 hover:opacity-100 transition-opacity duration-500">
-              <ParallaxImage 
-                src={project.image} 
-                alt={`${project.title} architecture`} 
-                speed={15}
-                className="w-full h-full"
-              />
+            <div className="w-full h-full absolute inset-0 opacity-90 hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
               <img 
                 src={project.image} 
-                alt="" 
-                className="hidden" 
+                alt={`${project.title} screenshot`} 
+                className="w-full h-full object-cover" 
                 onError={() => setImageError(true)} 
               />
             </div>

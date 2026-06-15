@@ -36,8 +36,10 @@ export default function CertificatesSection() {
           onMouseUp={() => setIsPaused(false)}
         >
           {doubled.map((cert, i) => (
-            <div key={`${cert.id}-${i}`} className="flex-shrink-0 w-[290px] sm:w-[350px] md:w-[400px]">
-              <CertificateCard cert={cert} />
+            <div key={`${cert.id}-${i}`} className="flex-shrink-0 w-[290px] sm:w-[350px] md:w-[400px] flex items-stretch">
+              <div className="w-full">
+                <CertificateCard cert={cert} />
+              </div>
             </div>
           ))}
         </div>
