@@ -16,7 +16,7 @@ export default function CertificateCard({ cert, variants }: CertificateCardProps
       variants={variants}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className="p-6 bg-card border border-border hover:border-accent-secondary/50 transition-colors duration-300 group flex flex-col justify-between"
+      className="p-6 bg-card border border-border hover:border-accent-secondary/50 transition-colors duration-300 group flex flex-col justify-between h-full w-full"
     >
       <div>
         <div className="flex items-start justify-between">

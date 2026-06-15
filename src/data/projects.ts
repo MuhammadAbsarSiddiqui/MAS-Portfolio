@@ -29,9 +29,10 @@ export const featuredProjects: FeaturedProject[] = [
     problem: "Human brokers spend hours reading messy emails and manually matching buyers to sellers, leaving profit on the table due to missed connections.",
     solution: "IntelliTrade monitors email inboxes 24/7, uses AI to understand trade intents, and runs matching algorithms that combine multiple sellers to fulfill large orders automatically.",
     tech: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "BullMQ", "Redis", "Google Gemini", "OpenAI"],
-    image: "/images/intellitrade-architecture.png"
+    image: "/images/intelli-trade.jpg"
   },
   {
+
     id: "tacitvault",
     title: "TacitVault AI",
     tagline: "Voice-to-Knowledge Management System",
@@ -39,7 +40,7 @@ export const featuredProjects: FeaturedProject[] = [
     problem: "Critical operational knowledge lives only in employees' heads. When experts leave, the knowledge leaves with them.",
     solution: "TacitVault captures voice input, structures it into searchable SOPs, and monitors for concentration and retirement risks, alerting management before gaps become crises.",
     tech: ["Python", "FastAPI", "Google Gemini API", "Supabase", "PostgreSQL", "pgvector", "APScheduler"],
-    image: "/images/tacitvault-architecture.png"
+    image: "/images/tacit-vault.png"
   }
 ];
 
