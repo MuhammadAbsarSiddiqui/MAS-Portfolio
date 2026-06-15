@@ -3,18 +3,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CVDButton } from '@/components/global/CVDButton';
+import { GlobeAnimation } from '@/components/animation/GlobeAnimation';
 
 export function HeroSection() {
   const customEase = [0.25, 0.1, 0.25, 1] as const;
 
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto w-full">
-        {/* Name Title with staggered reveals */}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left side: Text Content */}
+        <div>
+          {/* Name Title with staggered reveals */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter leading-[0.85] font-heading">
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 w-max">
             <motion.span
-              className="block"
+              className="block pr-6"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: customEase }}
@@ -22,9 +25,9 @@ export function HeroSection() {
               Muhammad
             </motion.span>
           </span>
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 w-max">
             <motion.span
-              className="block"
+              className="block pr-6"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
@@ -32,9 +35,9 @@ export function HeroSection() {
               Absar
             </motion.span>
           </span>
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 w-max">
             <motion.span
-              className="block"
+              className="block pr-6"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
@@ -76,6 +79,18 @@ export function HeroSection() {
             Get in touch
           </a>
           <CVDButton variant="hero" />
+        </motion.div>
+        </div>
+
+        {/* Right side: Globe Animation */}
+        <motion.div 
+          className="flex justify-center items-center relative"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
+        >
+          <div className="absolute inset-0 bg-accent-primary/10 rounded-full blur-3xl -z-10 w-3/4 h-3/4 m-auto" />
+          <GlobeAnimation />
         </motion.div>
       </div>
 

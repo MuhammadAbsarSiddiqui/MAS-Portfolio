@@ -42,5 +42,7 @@ next-env.d.ts
 
 # execution plans and guides
 *_Plan.md
+PW_*.md
 EDITING_GUIDE.md
-
+AGENTS.md
+CLAUDE.md
