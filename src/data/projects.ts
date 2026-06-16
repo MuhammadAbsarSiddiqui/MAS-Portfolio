@@ -28,7 +28,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "A multi-tenant SaaS platform that automates commodity trade discovery by reading broker emails, extracting structured trade data via AI, and intelligently matching buyers with sellers in real time.",
     problem: "Human brokers spend hours reading messy emails and manually matching buyers to sellers, leaving profit on the table due to missed connections.",
     solution: "IntelliTrade monitors email inboxes 24/7, uses AI to understand trade intents, and runs matching algorithms that combine multiple sellers to fulfill large orders automatically.",
-    tech: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "BullMQ", "Redis", "Google Gemini", "OpenAI"],
+    tech: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Redis", "Google Gemini", "OpenAI"],
     image: "/images/intelli-trade.jpg"
   },
   {

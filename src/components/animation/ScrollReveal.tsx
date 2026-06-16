@@ -14,12 +14,12 @@ interface ScrollRevealProps {
 export default function ScrollReveal({
   children,
   delay = 0,
-  duration = 0.7,
-  y = 40,
+  duration = 0.4,
+  y = 30,
   className,
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
