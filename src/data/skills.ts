@@ -10,10 +10,10 @@ export const skills: SkillCategory[] = [
   },
   {
     category: "Backend & AI",
-    items: ["Node.js", "Python", "FastAPI", "Fastify", "Prisma", "Google Gemini API", "REST APIs"]
+    items: ["Node.js", "Python", "FastAPI", "Fastify", "Google Gemini API", "REST APIs"]
   },
   {
     category: "Database & Tools",
-    items: ["PostgreSQL", "Supabase", "Redis", "Git", "GitHub", "Vercel", "BullMQ"]
+    items: ["PostgreSQL", "Supabase", "Redis", "Git", "GitHub", "Vercel"]
   }
 ];

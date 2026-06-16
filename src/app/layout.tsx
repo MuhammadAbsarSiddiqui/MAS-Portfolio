@@ -15,6 +15,12 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jet
 export const metadata: Metadata = {
   title: 'Muhammad Absar Siddiqui | Software Engineer',
   description: 'Software Engineer building AI-powered applications that turn unstructured human input into structured intelligence.',
+  keywords: ['Software Engineer', 'Full-stack Developer', 'AI Systems', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Python'],
+  authors: [{ name: 'Muhammad Absar Siddiqui' }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-touch-icon.png',
@@ -23,6 +29,7 @@ export const metadata: Metadata = {
     title: 'Muhammad Absar Siddiqui | Software Engineer',
     description: 'Building AI systems that turn unstructured input into structured intelligence.',
     images: ['/images/og-image.png'],
+    type: 'website',
   },
 }
 

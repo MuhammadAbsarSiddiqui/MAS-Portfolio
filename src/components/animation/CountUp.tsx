@@ -25,7 +25,10 @@ export default function CountUp({ target, suffix = '', duration = 1.5 }: CountUp
         duration: duration,
         ease: 'power2.out',
         onUpdate: () => {
-          setValue(Math.floor(obj.val));
+          setValue(Math.round(obj.val));
+        },
+        onComplete: () => {
+          setValue(target);
         }
       });
     });

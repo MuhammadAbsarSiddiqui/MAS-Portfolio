@@ -18,9 +18,9 @@ export function HeroSection() {
           <span className="block overflow-hidden py-1 w-max">
             <motion.span
               className="block pr-6"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: customEase }}
+              transition={{ duration: 0.5, ease: customEase }}
             >
               Muhammad
             </motion.span>
@@ -28,9 +28,9 @@ export function HeroSection() {
           <span className="block overflow-hidden py-1 w-max">
             <motion.span
               className="block pr-6"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
+              transition={{ duration: 0.5, delay: 0.1, ease: customEase }}
             >
               Absar
             </motion.span>
@@ -38,9 +38,9 @@ export function HeroSection() {
           <span className="block overflow-hidden py-1 w-max">
             <motion.span
               className="block pr-6"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
+              transition={{ duration: 0.5, delay: 0.2, ease: customEase }}
             >
               Siddiqui<span className="text-accent-primary">.</span>
             </motion.span>
@@ -53,7 +53,7 @@ export function HeroSection() {
             className="text-base md:text-lg text-muted max-w-xl font-body"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: customEase }}
+            transition={{ duration: 0.5, delay: 0.2, ease: customEase }}
           >
             Software Engineer building AI-powered applications that transform unstructured human input into structured intelligence.
           </motion.p>
@@ -64,7 +64,7 @@ export function HeroSection() {
           className="mt-12 flex flex-wrap gap-6 items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: customEase }}
+          transition={{ duration: 0.5, delay: 0.3, ease: customEase }}
         >
           <a 
             href="#projects" 
@@ -87,7 +87,7 @@ export function HeroSection() {
           className="flex justify-center items-center relative"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
+          transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
         >
           <div className="absolute inset-0 bg-accent-primary/10 rounded-full blur-3xl -z-10 w-3/4 h-3/4 m-auto" />
           <GlobeAnimation />

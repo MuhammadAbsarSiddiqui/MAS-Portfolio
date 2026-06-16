@@ -17,7 +17,7 @@ export const certificates: Certificate[] = [
     platform: "Coursera",
     date: "May 13, 2025",
     description: "Professional certificate covering data models, pipelines, dashboards, and business decision-making workflows.",
-    url: "https://coursera.org/verify/professional-cert/G0R0F0Q7OVUI",
+    url:null,
     skills: ["Data Analysis", "Business Intelligence", "Dashboard Design"]
   },
   {
@@ -27,7 +27,7 @@ export const certificates: Certificate[] = [
     platform: "Coursera",
     date: "May 5, 2025",
     description: "Applied directly in IntelliTrade's Gemini API integration pipeline and AI extraction workflows.",
-    url: "https://coursera.org/verify/BKHYQKZ8WHJS",
+    url: null,
     skills: ["LLM Prompt Engineering", "AI Integration", "Gemini API"]
   },
   {
@@ -49,5 +49,15 @@ export const certificates: Certificate[] = [
     description: "Global remote internship with US-backed international professional standards. Executed PM workflows across time zones.",
     url: null,
     skills: ["Cross-functional Collaboration", "Remote Work", "International Standards"]
-  }
+  },
+  {
+  id: "banoqabil-frontend",
+  title: "Frontend Web Development",
+  org: "Bano Qabil",
+  platform: "In-House Training",
+  date: "Dec 2023 – Mar 2024",
+  description: "Intensive frontend training covering HTML5, CSS3, JavaScript (ES6+), and React.js fundamentals. Applied directly in subsequent internship projects including a responsive restaurant website.",
+  url: null,
+  skills: ["HTML5", "CSS3", "JavaScript", "React.js", "Responsive Design"]
+}
 ];
