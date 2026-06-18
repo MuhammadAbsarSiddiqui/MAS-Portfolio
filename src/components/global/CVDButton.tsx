@@ -10,15 +10,15 @@ interface CVDButtonProps {
 
 export function CVDButton({ variant = 'default', className }: CVDButtonProps) {
   useEffect(() => {
-    // Check if cv.pdf exists (standard check by trying to fetch headers)
-    fetch('/cv.pdf', { method: 'HEAD' })
+    // Check if MuhammadAbsarSiddiqui(MAS)CV.pdf exists (standard check by trying to fetch headers)
+    fetch('/MuhammadAbsarSiddiqui(MAS)CV.pdf', { method: 'HEAD' })
       .then((res) => {
         if (!res.ok) {
-          console.warn('Portfolio warning: /cv.pdf is missing from the public folder.');
+          console.warn('Portfolio warning: /MuhammadAbsarSiddiqui(MAS)CV.pdf is missing from the public folder.');
         }
       })
       .catch(() => {
-        console.warn('Portfolio warning: /cv.pdf is missing or unreachable.');
+        console.warn('Portfolio warning: /MuhammadAbsarSiddiqui(MAS)CV.pdf is missing or unreachable.');
       });
   }, []);
 
