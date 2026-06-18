@@ -24,8 +24,8 @@ export function CVDButton({ variant = 'default', className }: CVDButtonProps) {
 
   return (
     <a
-      href="/Muhammad_Absar_Siddiqui_CV.pdf"
-      download="Muhammad_Absar_Siddiqui_CV.pdf"
+      href="/MuhammadAbsarSiddiqui(MAS)CV.pdf"
+      download="MuhammadAbsarSiddiqui(MAS)CV.pdf"
       className={cn(
         "inline-flex items-center justify-center font-heading transition-all duration-300",
         variant === 'hero' && "px-6 py-3 border border-foreground/30 hover:border-accent-primary hover:text-accent-primary text-base rounded-md",
