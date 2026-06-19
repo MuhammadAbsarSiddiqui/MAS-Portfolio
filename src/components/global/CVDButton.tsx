@@ -10,7 +10,7 @@ interface CVDButtonProps {
 
 export function CVDButton({ variant = 'default', className }: CVDButtonProps) {
   useEffect(() => {
-    // Check if MuhammadAbsarSiddiqui(MAS)CV.pdf exists (standard check by trying to fetch headers)
+    // Check if MuhammadAbsarSiddiqui(MAS).pdf exists (standard check by trying to fetch headers)
     fetch('/MuhammadAbsarSiddiqui(MAS)CV.pdf', { method: 'HEAD' })
       .then((res) => {
         if (!res.ok) {

@@ -95,8 +95,8 @@ export function ContactSection() {
 
           <ScrollReveal delay={0.25}>
             <a
-              href="/cv.pdf"
-              download="Muhammad_Absar_Siddiqui_CV.pdf"
+              href="/MuhammadAbsarSiddiqui(MAS)CV.pdf"
+              download="MuhammadAbsarSiddiqui(MAS)CV.pdf"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-primary hover:bg-accent-primary/95 text-black font-heading font-bold rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300 scale-100 hover:scale-[1.02] active:scale-[0.98]"
               aria-label="Download CV PDF"
             >
