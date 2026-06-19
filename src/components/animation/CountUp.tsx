@@ -13,7 +13,7 @@ interface CountUpProps {
 export default function CountUp({ target, suffix = '', duration = 1.5 }: CountUpProps) {
   const [value, setValue] = useState(0);
   const elementRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(elementRef, { once: true, margin: "-50px" });
+  const isInView = useInView(elementRef, { once: true, margin: "0px 0px -20px 0px" });
 
   useEffect(() => {
     if (!isInView) return;

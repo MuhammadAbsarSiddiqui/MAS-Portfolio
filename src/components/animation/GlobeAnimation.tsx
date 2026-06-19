@@ -23,7 +23,7 @@ export function GlobeAnimation() {
 
   return (
     <div 
-      className={`w-80 h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] mx-auto flex items-center justify-center opacity-90 ${isDark ? 'drop-shadow-2xl' : ''}`}
+      className={`-my-12 md:my-0 w-80 h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] mx-auto flex items-center justify-center opacity-90 ${isDark ? 'drop-shadow-2xl' : ''}`}
       style={!isDark ? { filter: 'brightness(0.5) contrast(1.5) drop-shadow(0 0 4px #06b6d4) drop-shadow(0 0 8px #06b6d4)' } : undefined}
     >
       <DotLottieReact
